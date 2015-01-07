@@ -1,5 +1,10 @@
 package tlstext
 
+import (
+	"fmt"
+	"crypto/tls"
+)
+
 // This package provides simple functions `VersionText` and
 // `CipherSuiteText` that provide the raw value to string translations.
 
@@ -28,12 +33,42 @@ var cipherMap = map[uint16]string{
 	0xc02b: "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
 }
 
-// TLSVersionString maps a TLS version to a string, or "unknown"
+// TLSVersionString maps a TLS version to a string, or the hex
+//  representation if unknown.
 func Version(x uint16) string {
-	return versionMap[x]
+	s, ok := versionMap[x]
+	if !ok {
+		return fmt.Sprintf("%04x", x)
+	}
+	return s
 }
 
-// CipherSuiteText maps a TLS Cipher Suite to a string or "unknown"
+// CipherSuiteText maps a TLS Cipher Suite to a string or the hex
+// representation if unknown
 func CipherSuite(x uint16) string {
-	return cipherMap[x]
+	s, ok := cipherMap[x]
+	if !ok {
+		return fmt.Sprintf("%04x", x)
+	}
+	return s
+}
+
+// VersionFromTLS retuns a string representation of CipherSuite
+//  or empty string if not TLS
+//
+func VersionFromConnection(t *tls.ConnectionState) string {
+	if t == nil {
+		return ""
+	}
+	return Version(t.Version)
+}
+
+// CipherSuiteFromTLS retuns a string representation of CipherSuite
+//  or empty string if not TLS
+//
+func CipherSuiteFromConnection(t *tls.ConnectionState) string {
+	if t == nil {
+		return ""
+	}
+	return CipherSuite(t.CipherSuite)
 }
