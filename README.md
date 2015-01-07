@@ -7,3 +7,4 @@ The [Go TLS cipher suites and TLS versions](http://golang.org/pkg/crypto/tls/#pk
 This package provides simple functions `VersionText` and
 `CipherSuiteText` that provide the raw value to string translations.
 
+

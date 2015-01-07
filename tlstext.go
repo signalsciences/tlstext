@@ -30,18 +30,10 @@ var cipherMap = map[uint16]string{
 
 // TLSVersionString maps a TLS version to a string, or "unknown"
 func Version(x uint16) string {
-	v, ok := versionMap[x]
-	if !ok {
-		return "unknown"
-	}
-	return v
+	return versionMap[x]
 }
 
 // CipherSuiteText maps a TLS Cipher Suite to a string or "unknown"
 func CipherSuite(x uint16) string {
-	v, ok := cipherMap[x]
-	if !ok {
-		return "unknown"
-	}
-	return v
+	return cipherMap[x]
 }
