@@ -1,8 +1,8 @@
 package tlstext
 
 import (
-	"fmt"
 	"crypto/tls"
+	"fmt"
 )
 
 // This package provides simple functions `VersionText` and
@@ -33,7 +33,7 @@ var cipherMap = map[uint16]string{
 	0xc02b: "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
 }
 
-// TLSVersionString maps a TLS version to a string, or the hex
+// Version maps a TLS version to a string, or the hex
 //  representation if unknown.
 func Version(x uint16) string {
 	s, ok := versionMap[x]
@@ -43,7 +43,7 @@ func Version(x uint16) string {
 	return s
 }
 
-// CipherSuiteText maps a TLS Cipher Suite to a string or the hex
+// CipherSuite maps a TLS Cipher Suite to a string or the hex
 // representation if unknown
 func CipherSuite(x uint16) string {
 	s, ok := cipherMap[x]
@@ -53,7 +53,7 @@ func CipherSuite(x uint16) string {
 	return s
 }
 
-// VersionFromTLS retuns a string representation of CipherSuite
+// VersionFromConnection retuns a string representation of CipherSuite
 //  or empty string if not TLS
 //
 func VersionFromConnection(t *tls.ConnectionState) string {
@@ -63,8 +63,8 @@ func VersionFromConnection(t *tls.ConnectionState) string {
 	return Version(t.Version)
 }
 
-// CipherSuiteFromTLS retuns a string representation of CipherSuite
-//  or empty string if not TLS
+// CipherSuiteFromConnection retuns a string representation of
+// CipherSuite or empty string if not TLS
 //
 func CipherSuiteFromConnection(t *tls.ConnectionState) string {
 	if t == nil {

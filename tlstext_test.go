@@ -1,8 +1,8 @@
 package tlstext
 
 import (
-	"testing"
 	"crypto/tls"
+	"testing"
 )
 
 func TestCipherSuite(t *testing.T) {
@@ -48,7 +48,7 @@ func TestFromConnection(t *testing.T) {
 	}
 
 	c := tls.ConnectionState{
-		Version: uint16(0x0303),
+		Version:     uint16(0x0303),
 		CipherSuite: uint16(0xc02b),
 	}
 	expected := "TLS12"
@@ -63,4 +63,3 @@ func TestFromConnection(t *testing.T) {
 		t.Errorf("For %d, expected %q got %q", c.CipherSuite, expected, actual)
 	}
 }
-
