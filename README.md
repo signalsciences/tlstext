@@ -14,6 +14,6 @@ can not be used since neither cipher suite not tls version are a
 
 This intentionally does not use the constants in
 [tls/cipher_suites.go](https://golang.org/src/crypto/tls/cipher_suites.go)
-since they are dependant on the version of Go used.
+since they are dependent on the version of Go used.
 
 
