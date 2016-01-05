@@ -1,4 +1,4 @@
-# tlstext - simple mapping of TLS Versions and Cipher Suites to strings
+tlstext - simple mapping of TLS Versions and Cipher Suites to strings
 
 The [Go TLS cipher suites and TLS versions](http://golang.org/pkg/crypto/tls/#pkg-constants) are untyped
 or are `uint16` and without a string representation.  This also means
