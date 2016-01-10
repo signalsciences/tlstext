@@ -1,3 +1,4 @@
+[![Go Report Card](http://goreportcard.com/badge/client9/tlstext)](http://goreportcard.com/report/client9/tlstext)
 tlstext - simple mapping of TLS Versions and Cipher Suites to strings
 
 The [Go TLS cipher suites and TLS versions](http://golang.org/pkg/crypto/tls/#pkg-constants) are untyped
