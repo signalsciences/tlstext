@@ -1,4 +1,4 @@
-[![Go Report Card](http://goreportcard.com/badge/client9/tlstext)](http://goreportcard.com/report/client9/tlstext)
+[![Go Report Card](http://goreportcard.com/badge/client9/tlstext)](http://goreportcard.com/report/client9/tlstext) [![GoDoc](https://godoc.org/github.com/client9/tlstext?status.svg)](https://godoc.org/github.com/client9/tlstext)
 
 tlstext - simple mapping of TLS Versions and Cipher Suites to strings
 
