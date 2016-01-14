@@ -13,3 +13,15 @@ test:
 clean:
 	rm -f *~ */*~
 	go clean ./...
+
+ci: lint test
+
+docker-ci:
+	docker run --rm \
+		-e COVERALLS_REPO_TOKEN=$(COVERALLS_REPO_TOKEN) \
+		-v $(PWD):/go/src/github.com/client9/tlstext \
+		-w /go/src/github.com/client9/tlstext \
+		nickg/golang-dev-docker \
+		make ci
+
+.PHONY: ci docker-ci
