@@ -36,7 +36,7 @@ func CipherSuite(x uint16) string {
 	return s
 }
 
-// VersionFromConnection retuns a string representation of CipherSuite
+// VersionFromConnection returns a string representation of CipherSuite
 //  or empty string if not TLS
 //
 func VersionFromConnection(t *tls.ConnectionState) string {
