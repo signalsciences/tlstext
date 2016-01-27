@@ -13,6 +13,7 @@ test:
 clean:
 	rm -f *~ */*~
 	go clean ./...
+	git gc
 
 ci: lint test
 
