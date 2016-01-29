@@ -46,7 +46,7 @@ func VersionFromConnection(t *tls.ConnectionState) string {
 	return Version(t.Version)
 }
 
-// CipherSuiteFromConnection retuns a string representation of
+// CipherSuiteFromConnection returns a string representation of
 // CipherSuite or empty string if not TLS
 //
 func CipherSuiteFromConnection(t *tls.ConnectionState) string {
