@@ -8,18 +8,25 @@ import (
 	"go/format"
 	"io"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 )
 
+const ianaURL = "http://www.iana.org/assignments/tls-parameters/tls-parameters-4.csv"
+
 func main() {
+	var (
+		loc     = flag.String("url", ianaURL, "location of IANA TLS CSV")
+		outfile = flag.String("out", "ciphermap.go", "name of output file")
+	)
 	flag.Parse()
-	args := flag.Args()
-	file, err := os.Open(args[0]) // For read access.
+	resp, err := http.Get(*loc)
 	if err != nil {
 		log.Fatal(err)
 	}
-	r := csv.NewReader(file)
+	defer resp.Body.Close()
+	r := csv.NewReader(resp.Body)
 
 	buf := bytes.Buffer{}
 	buf.WriteString("package tlstext\n")
@@ -44,5 +51,15 @@ func main() {
 	if err != nil {
 		log.Fatalf("invalid source code: %s", err)
 	}
-	fmt.Printf(string(out))
+
+	// write output to file
+	fo, err := os.Create(*outfile)
+	if err != nil {
+		log.Fatalf("unable to create: %s", err)
+	}
+	_, err = fo.Write(out)
+	if err != nil {
+		log.Fatalf("unable to write: %s", err)
+	}
+	fo.Close()
 }

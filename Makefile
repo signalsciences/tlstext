@@ -6,12 +6,16 @@ lint:
 	go vet ./...
 	gofmt -w -s *.go */*.go
 
+# generate will regenerate the map between hex value and string
+# it only rarely needs to be run
+generate:
+	go generate .
+
 test:
 	go test ./...
 	misspell README.md *.go */*.go
 
 clean:
-	rm -f *~ */*~
 	go clean ./...
 	git gc
 
@@ -19,7 +23,6 @@ ci: lint test
 
 docker-ci:
 	docker run --rm \
-		-e COVERALLS_REPO_TOKEN=$(COVERALLS_REPO_TOKEN) \
 		-v $(PWD):/go/src/github.com/client9/tlstext \
 		-w /go/src/github.com/client9/tlstext \
 		nickg/golang-dev-docker \

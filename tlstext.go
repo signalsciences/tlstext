@@ -1,5 +1,6 @@
 package tlstext
 
+//go:generate go run generator/main.go
 import (
 	"crypto/tls"
 	"fmt"
