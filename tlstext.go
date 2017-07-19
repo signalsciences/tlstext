@@ -1,3 +1,5 @@
+// Package tlstext provides simple functions VersionText and
+// CipherSuiteText that provide the raw value to string translations.
 package tlstext
 
 //go:generate go run generator/main.go
@@ -5,9 +7,6 @@ import (
 	"crypto/tls"
 	"fmt"
 )
-
-// This package provides simple functions `VersionText` and
-// `CipherSuiteText` that provide the raw value to string translations.
 
 // reverse map of binary TLS Version to string
 var versionMap = map[uint16]string{
@@ -18,7 +17,7 @@ var versionMap = map[uint16]string{
 }
 
 // Version maps a TLS version to a string, or the hex
-//  representation if unknown.
+// representation if unknown.
 func Version(x uint16) string {
 	s, ok := versionMap[x]
 	if !ok {
@@ -38,8 +37,7 @@ func CipherSuite(x uint16) string {
 }
 
 // VersionFromConnection returns a string representation of CipherSuite
-//  or empty string if not TLS
-//
+// or empty string if not TLS
 func VersionFromConnection(t *tls.ConnectionState) string {
 	if t == nil {
 		return ""
