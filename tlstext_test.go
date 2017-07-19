@@ -2,6 +2,7 @@ package tlstext
 
 import (
 	"crypto/tls"
+	"fmt"
 	"testing"
 )
 
@@ -62,4 +63,10 @@ func TestFromConnection(t *testing.T) {
 	if expected != actual {
 		t.Errorf("For %d, expected %q got %q", c.CipherSuite, expected, actual)
 	}
+}
+
+func ExampleVersion() {
+	fmt.Println(Version(uint16(0x0303)))
+	// Output:
+	// TLS12
 }
