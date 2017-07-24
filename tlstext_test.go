@@ -70,3 +70,9 @@ func ExampleVersion() {
 	// Output:
 	// TLS12
 }
+
+func ExampleCipherSuite() {
+	fmt.Println(CipherSuite(uint16(0xc02b)))
+	// Output:
+	// TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+}
