@@ -16,7 +16,7 @@ clean:  ## clean up
 	go clean ./...
 	git gc
 
-ci: build lint test
+ci: build lint test  ## do what travis-ci does
 
 # https://www.client9.com/self-documenting-makefiles/
 help:
