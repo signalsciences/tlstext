@@ -14,11 +14,21 @@ func TestCipherSuite(t *testing.T) {
 		t.Errorf("For %d, expected %q got %q", value, expected, actual)
 	}
 
+	newvalue := CipherFromString(expected)
+	if newvalue != value {
+		t.Errorf("For %s, expected %q got %q", expected, value, newvalue)
+	}
+
 	value = uint16(1234)
 	expected = "04d2"
 	actual = CipherSuite(value)
 	if expected != actual {
 		t.Errorf("For %d, expected %q got %q", value, expected, actual)
+	}
+
+	zero := CipherFromString("junk")
+	if zero != 0x0 {
+		t.Errorf("Expected zero value for bad version")
 	}
 }
 
@@ -29,12 +39,21 @@ func TestVersion(t *testing.T) {
 	if expected != actual {
 		t.Errorf("For %d, expected %q got %q", value, expected, actual)
 	}
+	newvalue := VersionFromString(expected)
+	if newvalue != value {
+		t.Errorf("For %s, expected %q got %q", expected, value, newvalue)
+	}
 
 	value = uint16(1234)
 	expected = "04d2"
 	actual = Version(value)
 	if expected != actual {
 		t.Errorf("For %d, expected %q got %q", value, expected, actual)
+	}
+
+	zero := VersionFromString("junk")
+	if zero != 0x0 {
+		t.Errorf("Expected zero value for bad version")
 	}
 }
 
