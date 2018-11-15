@@ -14,6 +14,7 @@ var versionMap = map[uint16]string{
 	0x0301: "TLS10",
 	0x0302: "TLS11",
 	0x0303: "TLS12",
+	0x0304: "TLS13",
 }
 
 // Version maps a TLS version to a string, or the hex
