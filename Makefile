@@ -1,31 +1,27 @@
+build:
+	go build .
 
-all: lint test
-
-lint:
+lint:  ## basic lints
 	golint ./...
 	go vet ./...
 	gofmt -w -s *.go */*.go
 
-# generate will regenerate the map between hex value and string
-# it only rarely needs to be run
-generate:
+generate:  ## regenerate mapping
 	go generate .
 
-test:
+test:  ## tests
 	go test ./...
-	misspell README.md *.go */*.go
 
-clean:
+clean:  ## clean up
 	go clean ./...
 	git gc
 
-ci: lint test
+ci: build lint test
 
-docker-ci:
-	docker run --rm \
-		-v $(PWD):/go/src/github.com/client9/tlstext \
-		-w /go/src/github.com/client9/tlstext \
-		nickg/golang-dev-docker \
-		make ci
-
-.PHONY: ci docker-ci
+# https://www.client9.com/self-documenting-makefiles/
+help:
+	@awk -F ':|##' '/^[^\t].+?:.*?##/ {\
+        printf "\033[36m%-30s\033[0m %s\n", $$1, $$NF \
+        }' $(MAKEFILE_LIST)
+.DEFAULT_GOAL=help
+.PHONY=help

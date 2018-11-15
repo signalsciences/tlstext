@@ -1,5 +1,9 @@
-sudo: required
+sudo: false
 dist: trusty
-language: generic
+language: go
+go:
+  - "1.11.1"
+git:
+  depth: 1
 script:
-  - make -e docker-ci
+  - make ci
