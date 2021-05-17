@@ -1,6 +1,6 @@
 # tlstext 
 
-[![Build Status](https://travis-ci.org/signalsciences/tlstext.svg?branch=master)](https://travis-ci.org/signalsciences/tlstext) [![Go Report Card](http://goreportcard.com/badge/signalsciences/tlstext)](http://goreportcard.com/report/signalsciences/tlstext) [![GoDoc](https://godoc.org/github.com/signalsciences/tlstext?status.svg)](https://godoc.org/github.com/signalsciences/tlstext) [![Coverage](http://gocover.io/_badge/github.com/signalsciences/tlstext)](http://gocover.io/github.com/signalsciences/tlstext) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/signalsciences/tlstext/master/LICENSE)
+[![Build Status](https://travis-ci.org/signalsciences/tlstext.svg?branch=main)](https://travis-ci.org/signalsciences/tlstext) [![Go Report Card](http://goreportcard.com/badge/signalsciences/tlstext)](http://goreportcard.com/report/signalsciences/tlstext) [![GoDoc](https://godoc.org/github.com/signalsciences/tlstext?status.svg)](https://godoc.org/github.com/signalsciences/tlstext) [![Coverage](http://gocover.io/_badge/github.com/signalsciences/tlstext)](http://gocover.io/github.com/signalsciences/tlstext) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://raw.githubusercontent.com/signalsciences/tlstext/main/LICENSE)
 
 
 simple mapping of TLS Versions and Cipher Suites to strings
